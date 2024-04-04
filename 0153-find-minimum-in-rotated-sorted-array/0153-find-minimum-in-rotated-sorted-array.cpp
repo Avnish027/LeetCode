@@ -11,5 +11,6 @@ public:
         mid=s+(e-s)/2;
         }
         return ans;
+        
     }
 };
