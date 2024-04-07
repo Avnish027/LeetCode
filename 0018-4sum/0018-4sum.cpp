@@ -9,9 +9,8 @@ public:
             for(int j=i+1; j<nums.size()-2; j++){
                  if(j!=i+1 && nums[j]==nums[j-1]) continue;
 
-               long long new_tar1= nums[j]+nums[i];
+              long long new_tar1= nums[j]+nums[i];
                 long long new_tar=target-new_tar1;
-                
                 int s=j+1, e=nums.size()-1;
                 while(s<e){
                     if(nums[s]==new_tar-nums[e]){
