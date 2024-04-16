@@ -5,14 +5,15 @@ public:
         for(int i=0; i<k; i++){
             sum+=cardPoints[i];
         }
-        for(int i=0; i<=k; i++){
-            if(i==0) maxi=max(maxi,sum);
-            else {
+                     maxi=max(maxi,sum);
+
+        for(int i=1; i<=k; i++){
+            
                 sum_left+=cardPoints[cardPoints.size()-i];
                 sum-=cardPoints[k-i];
                 int a=sum_left +sum;
                 maxi=max(maxi,a);
-            }
+            
         }
         
         return maxi;
