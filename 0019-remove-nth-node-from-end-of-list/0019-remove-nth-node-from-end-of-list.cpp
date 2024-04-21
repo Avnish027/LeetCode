@@ -36,26 +36,29 @@ public:
        //  return head;
         
         
-        int count=0;
-        ListNode* temp=head;
+       int count=0;
+    ListNode* temp=head;
         while(temp){
             count++; temp=temp->next;
         }
         count-=n;
-        if(count==0){
-            ListNode* temp1= head;
-            head=head->next;
-            delete temp1;
-            return head;
-        }
-        temp=head;
+        ListNode* curr=head;
         ListNode* prev=NULL;
         while(count--){
-            prev=temp;
-            temp=temp->next;
+            prev=curr; curr=curr->next;
         }
-        prev->next=temp->next;
-        delete temp;
-        return head;     
+        if(prev==NULL){
+            ListNode* temp=head;
+            head=head->next;
+            delete temp;
+            return head;
+        }
+        prev->next=curr->next;
+        delete curr;
+        return head;
+        
+        
+        
+        
     }
 };
