@@ -10,6 +10,17 @@
  */
 class Solution {
 public:
+    ListNode* fun(ListNode* prev, ListNode* curr){
+        if(curr->next==NULL){
+            curr->next=prev;
+            return curr;
+        }
+        ListNode* temp=curr->next;
+        curr->next=prev;
+        prev=curr; curr=temp;
+        return fun(prev,curr);
+    }
+    
     
     ListNode* reverseList(ListNode* head) {
         // vector<int> v;
@@ -26,27 +37,22 @@ public:
         // }
         // return head;
         
-//         ListNode* prev=NULL;
+      //Without using extra memory  
 //         ListNode* curr=head;
+//         ListNode* prev=NULL;
 //         while(curr){
-//             ListNode* temp=curr->next;
+//             ListNode* temp= curr->next;
 //             curr->next=prev;
 //             prev=curr;
 //             curr=temp;
-//         }
+// }
+//     return prev;
         
-//         head=prev;
-//         return head;
         
-        ListNode* curr=head;
-        ListNode* prev=NULL;
-        while(curr){
-            ListNode* temp= curr->next;
-            curr->next=prev;
-            prev=curr;
-            curr=temp;
-}
-    return prev;
+    //Recursion
+        if(head==NULL) return head;
+      return fun(NULL, head);  
+        
            
         
     }
