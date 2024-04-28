@@ -36,26 +36,66 @@ public:
        //  return head;
         
         
-       int count=0;
-    ListNode* temp=head;
+        // int count=0;
+        // ListNode* temp=head;
+        // while(temp){
+        //     count++; temp=temp->next;
+        // }
+        // count-=n;
+        // ListNode* curr=head;
+        // ListNode* prev=NULL;
+        // while(count--){
+        //     prev=curr; curr=curr->next;
+        // }
+        // if(prev==NULL){
+        //     ListNode* temp=head;
+        //     head=head->next;
+        //     delete temp;
+        //     return head;
+        // }
+        // prev->next=curr->next;
+        // delete curr;
+        // return head;
+        
+        
+        ListNode* temp=head;
+        int count=0;
         while(temp){
-            count++; temp=temp->next;
+            count++;
+            temp=temp->next;
         }
-        count-=n;
+        int from_start= count-n;
         ListNode* curr=head;
         ListNode* prev=NULL;
-        while(count--){
-            prev=curr; curr=curr->next;
+        while(from_start--){
+            prev=curr;
+            curr=curr->next;
         }
+        
         if(prev==NULL){
             ListNode* temp=head;
             head=head->next;
             delete temp;
             return head;
         }
+        
+        
         prev->next=curr->next;
         delete curr;
         return head;
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
