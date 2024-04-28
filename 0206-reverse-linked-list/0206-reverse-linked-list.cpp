@@ -49,11 +49,19 @@ public:
 //     return prev;
         
         
-    //Recursion
-        if(head==NULL) return head;
-      return fun(NULL, head);  
+    // //Recursion
+    //     if(head==NULL) return head;
+    //   return fun(NULL, head);             
         
-           
         
+        ListNode* curr=head;
+        ListNode* prev=NULL;
+        while(curr){
+            ListNode* temp=curr->next;
+            curr->next=prev;
+            prev=curr;
+            curr=temp;
+        }
+        return prev;
     }
 };
