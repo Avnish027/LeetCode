@@ -10,16 +10,24 @@
  */
 class Solution {
 public:
-    ListNode* fun(ListNode* prev, ListNode* curr){
-        if(curr->next==NULL){
-            curr->next=prev;
-            return curr;
-        }
-        ListNode* temp=curr->next;
-        curr->next=prev;
-        prev=curr; curr=temp;
-        return fun(prev,curr);
-    }
+    // ListNode* fun(ListNode* prev, ListNode* curr){
+    //     if(curr->next==NULL){
+    //         curr->next=prev;
+    //         return curr;
+    //     }
+    //     ListNode* temp=curr->next;
+    //     curr->next=prev;
+    //     prev=curr; curr=temp;
+    //     return fun(prev,curr);
+    // }
+    
+   ListNode* fun(ListNode* curr, ListNode* prev) {
+        if(curr==NULL) return prev;
+       ListNode* temp=curr->next;
+       curr->next=prev;
+       prev=curr;
+       return fun(temp,prev);
+   }
     
     
     ListNode* reverseList(ListNode* head) {
@@ -53,15 +61,8 @@ public:
     //     if(head==NULL) return head;
     //   return fun(NULL, head);             
         
+        return fun(head,NULL);
         
-        ListNode* curr=head;
-        ListNode* prev=NULL;
-        while(curr){
-            ListNode* temp=curr->next;
-            curr->next=prev;
-            prev=curr;
-            curr=temp;
-        }
-        return prev;
+        
     }
 };
