@@ -58,24 +58,22 @@ public:
         
         
         
-        if(head==NULL) return NULL;
-        ListNode* temp=head;
-        set<int> st;
-        while(temp){
-            st.insert(temp->val);
-            temp=temp->next;
+       if(head==NULL || head->next==NULL) return head;
+        ListNode* curr=head->next;
+        ListNode* prev= head;
+        while(curr){
+            if(prev->val==curr->val){
+                prev->next=curr->next;
+                // delete curr;
+                // curr=curr->next;
+                delete curr;
+                curr=prev->next;
+            }
+            else{
+                prev=curr;
+                curr=curr->next;
+            }
         }
-        temp=head;
-        for(auto it=st.begin(); it!=st.end(); it++){
-            temp->val=*it;
-            temp=temp->next;
-        }
-        temp=head;
-        int len= st.size()-1;
-        while(len--){
-            temp=temp->next;
-        }
-        temp->next=NULL;
         return head;
         
         
