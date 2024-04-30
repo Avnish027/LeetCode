@@ -34,14 +34,17 @@ public:
         
         
         int l=0, r=0,maxi=0;
-        set<int> st;
-        vector<int> v(100001,0);
+        // set<int> st;
+        // vector<int> v(100001,0);
+        unordered_map<int,int> mp;
         while(r<fruits.size()){
-            st.insert(fruits[r]);
-            v[fruits[r]]++;
-            while(st.size()>2){
-                v[fruits[l]]--;
-                if(v[fruits[l]]==0) st.erase(fruits[l]);
+            // st.insert(fruits[r]);
+            // v[fruits[r]]++;
+            mp[fruits[r]]++;
+            while(mp.size()>2){
+                // v[fruits[l]]--;
+                mp[fruits[l]]--;
+                if(mp[fruits[l]]==0) mp.erase(fruits[l]);
                 l++;
             }
             maxi=max(maxi,r-l+1);
