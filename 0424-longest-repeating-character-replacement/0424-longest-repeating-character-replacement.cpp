@@ -23,6 +23,8 @@ public:
             while(r-l+1-max_freq>k){
                 v[s[l]-'A']--;
                 // for(int i=0; i<26; i++) max_freq=max(max_freq,v[s[l]-'A']);
+                max_freq=0;
+                for(int i=0; i<26; i++) max_freq=max(max_freq,v[i]);
                 l++;
             }
             max_len=max(max_len,r-l+1);
