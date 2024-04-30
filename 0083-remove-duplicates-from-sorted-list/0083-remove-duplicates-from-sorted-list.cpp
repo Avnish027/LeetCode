@@ -33,28 +33,70 @@ public:
         // return head;
         
         
-        // Without taking the extra space
+//         // Without taking the extra space
+//         if(head==NULL) return NULL;
+//         ListNode* curr=head;
+//         ListNode* prev=NULL;
+//         while(curr){
+//             if(prev!=NULL){
+//                 if(prev->val== curr->val){
+//                     prev->next=curr->next;
+//                     delete curr;
+//                     curr=prev->next;
+//                 }
+//                 else{
+//                     prev=curr;
+//                     curr=curr->next;
+//                 }
+//             }
+//             else{
+//                 prev=curr;
+//                 curr=curr->next;
+//             }
+//         }
+//         return head;
+        
+        
+        
         if(head==NULL) return NULL;
-        ListNode* curr=head;
-        ListNode* prev=NULL;
-        while(curr){
-            if(prev!=NULL){
-                if(prev->val== curr->val){
-                    prev->next=curr->next;
-                    delete curr;
-                    curr=prev->next;
-                }
-                else{
-                    prev=curr;
-                    curr=curr->next;
-                }
-            }
-            else{
-                prev=curr;
-                curr=curr->next;
-            }
+        ListNode* temp=head;
+        set<int> st;
+        while(temp){
+            st.insert(temp->val);
+            temp=temp->next;
         }
+        temp=head;
+        for(auto it=st.begin(); it!=st.end(); it++){
+            temp->val=*it;
+            temp=temp->next;
+        }
+        temp=head;
+        int len= st.size()-1;
+        while(len--){
+            temp=temp->next;
+        }
+        temp->next=NULL;
         return head;
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
     }
 };
