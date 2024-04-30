@@ -13,21 +13,68 @@ public:
         // }
         // return max_len;
         
-        int max_len=0, r=0,l=0;
-        set<int> myset;
+        
+//         // My way by using combination of set and vector
+//         int max_len=0, r=0,l=0;
+//         set<int> myset;
+//         vector<int> v(100001,0);
+//         while(r<fruits.size()){
+//             myset.insert(fruits[r]);
+//             v[fruits[r]]++;
+//             while(myset.size()>2){
+//                 v[fruits[l]]--;
+//                 if(v[fruits[l]]==0) myset.erase(fruits[l]);
+//                 l++;
+//             }
+            
+//             max_len=max(max_len,r-l+1);
+//             r++;
+//         }
+//         return max_len;
+        
+        
+        int l=0, r=0,maxi=0;
+        set<int> st;
         vector<int> v(100001,0);
         while(r<fruits.size()){
-            myset.insert(fruits[r]);
+            st.insert(fruits[r]);
             v[fruits[r]]++;
-            while(myset.size()>2){
+            while(st.size()>2){
                 v[fruits[l]]--;
-                if(v[fruits[l]]==0) myset.erase(fruits[l]);
+                if(v[fruits[l]]==0) st.erase(fruits[l]);
                 l++;
             }
-            
-            max_len=max(max_len,r-l+1);
+            maxi=max(maxi,r-l+1);
             r++;
         }
-        return max_len;
+        return maxi;
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+       
     }
 };
