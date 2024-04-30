@@ -32,7 +32,27 @@ public:
 //         }
 //         return max_len;
         
+        // TC= O(2N))
+        // int l=0, r=0,maxi=0;
+        // // set<int> st;
+        // // vector<int> v(100001,0);
+        // unordered_map<int,int> mp;
+        // while(r<fruits.size()){
+        //     // st.insert(fruits[r]);
+        //     // v[fruits[r]]++;
+        //     mp[fruits[r]]++;
+        //     while(mp.size()>2){
+        //         // v[fruits[l]]--;
+        //         mp[fruits[l]]--;
+        //         if(mp[fruits[l]]==0) mp.erase(fruits[l]);
+        //         l++;
+        //     }
+        //     maxi=max(maxi,r-l+1);
+        //     r++;
+        // }
+        // return maxi;
         
+        //Tc= O(N)
         int l=0, r=0,maxi=0;
         // set<int> st;
         // vector<int> v(100001,0);
@@ -41,13 +61,13 @@ public:
             // st.insert(fruits[r]);
             // v[fruits[r]]++;
             mp[fruits[r]]++;
-            while(mp.size()>2){
+            if(mp.size()>2){
                 // v[fruits[l]]--;
                 mp[fruits[l]]--;
                 if(mp[fruits[l]]==0) mp.erase(fruits[l]);
                 l++;
             }
-            maxi=max(maxi,r-l+1);
+           if(mp.size()<=2) maxi=max(maxi,r-l+1);
             r++;
         }
         return maxi;
