@@ -33,44 +33,46 @@ public:
         reverse(v.begin(), v.end());
         prev=NULL;
         curr=head;
-//         while(curr && v.size()>0){
-//             if(curr->val==v[v.size()-1]){
-//                 if(prev==NULL){
-//                 ListNode* temp=curr->next;
-//                 delete curr;
-//                 curr=temp;
-//                 v.pop_back();
-//             }
-//             else {
-//                 ListNode* temp=curr->next;
-//                 delete curr;
-//                 curr=temp;
-//                 prev->next=curr;
-//                 v.pop_back();
-//             }
-//             }
-            
-//             else{
-//                 prev=curr;
-//                 curr=curr->next;
-//             }
-//         } 
-        while (curr) {
-            if (v.size() > 0 && curr->val == v.back()) {
-                ListNode* temp = curr;
-                curr = curr->next;
-                delete temp;
-                if (prev) {
-                    prev->next = curr;
-                } else {
-                    head = curr;
-                }
+        while(curr && v.size()>0){
+            if(curr->val==v[v.size()-1]){
+                if(prev==NULL){
+                ListNode* temp=curr->next;
+                delete curr;
+                curr=temp;
+                head=curr;
                 v.pop_back();
-            } else {
-                prev = curr;
-                curr = curr->next;
             }
-        }
+            else {
+                ListNode* temp=curr->next;
+                delete curr;
+                curr=temp;
+                prev->next=curr;
+                v.pop_back();
+            }
+            }
+            
+            else{
+                prev=curr;
+                curr=curr->next;
+            }
+        } 
+        // while (curr) {
+        //     if (v.size() > 0 && curr->val == v.back()) {
+        //         ListNode* temp = curr;
+        //         curr = curr->next;
+        //         delete temp;
+        //         if (prev) {
+        //             prev->next = curr;
+        //         } else {
+        //             head = curr;
+        //         }
+        //         v.pop_back();
+        //     } else {
+        //         prev = curr;
+        //         curr = curr->next;
+        //     }
+        // }
+        // return head;
         return head;
     }
 };
