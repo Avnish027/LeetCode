@@ -11,17 +11,21 @@
  */
 class Solution {
 public:
-    void pre_order(TreeNode* root, int& count){
-        if(root==NULL) return;
-        count++;
-        pre_order(root->left,count);
-        pre_order(root->right,count);
-    }
-        
+    // void pre_order(TreeNode* root, int& count){
+    //     if(root==NULL) return;
+    //     count++;
+    //     pre_order(root->left,count);
+    //     pre_order(root->right,count);
+    // }
+        int fun(TreeNode* root){
+            if(root==NULL) return 0;
+            return 1+fun(root->left)+fun(root->right);
+        }
         
     int countNodes(TreeNode* root) {
-        int count=0;
-        pre_order(root,count);
-        return count;
+        // int count=0;
+        // pre_order(root,count);
+        // return count;
+        return fun(root);
     }
 };
