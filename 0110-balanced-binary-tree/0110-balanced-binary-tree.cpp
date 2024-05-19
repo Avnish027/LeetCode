@@ -14,9 +14,11 @@ public:
     int fun(TreeNode* root, int& valid){
         if(!root) return 0;
         int L= fun(root->left, valid);
+        if(valid){
         int R= fun(root->right, valid);
         if(abs(L-R)>1) valid=0;
-        return 1+max(L,R);
+        return 1+max(L,R);}
+        return 0;
     }
     
     
