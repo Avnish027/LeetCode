@@ -9,7 +9,13 @@ public:
         return fun(n);
     }
     bool isPowerOfThree(int n) {
+        // if(n<=0) return false;
+        // return fun(n);
         if(n<=0) return false;
-        return fun(n);
+        while(n!=1){
+            if(n%3!= 0) return false;
+            else n=n/3;
+        }
+        return true;
     }
 };
