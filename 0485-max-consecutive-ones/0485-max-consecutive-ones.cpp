@@ -15,7 +15,7 @@ public:
             while(r<nums.size() && nums[r]!=1 ){
                 l=r;r++;l++;
             }
-            if(r>=nums.size() || l>=nums.size()) return max_len;
+            if(r>=nums.size())  return max_len;
             max_len=max(max_len,r-l+1);
             r++;
         }
