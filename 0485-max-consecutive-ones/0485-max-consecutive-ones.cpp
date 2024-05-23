@@ -10,15 +10,26 @@ public:
         // }
         // return max_len;
         
-       int max_len=0, l=0, r=0;
-        while(r<nums.size()){
-            while(r<nums.size() && nums[r]!=1 ){
-                l=r;r++;l++;
+       // int max_len=0, l=0, r=0;
+       //  while(r<nums.size()){
+       //      while(r<nums.size() && nums[r]!=1 ){
+       //          l=r;r++;l++;
+       //      }
+       //      if(r>=nums.size())  return max_len;
+       //      max_len=max(max_len,r-l+1);
+       //      r++;
+       //  }
+       //  return max_len;
+        
+        int maxi=0;
+        int count=0;
+        for(int i=0; i<nums.size(); i++){
+            if(nums[i]==1){
+                count++;
+                maxi=max(maxi,count);
             }
-            if(r>=nums.size())  return max_len;
-            max_len=max(max_len,r-l+1);
-            r++;
+            else count=0;
         }
-        return max_len;
+        return maxi;
     }
 };
