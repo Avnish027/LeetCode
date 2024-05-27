@@ -12,7 +12,7 @@ public:
     //     }
     // }
     
-    void fun(vector<int> v, int i, int target, vector<int>& ds, vector<vector<int>>& ans){
+    void fun(vector<int>& v, int i, int target, vector<int>& ds, vector<vector<int>>& ans){
         if(i>=v.size() || target<0) return ;
         if(target==0){
             ans.push_back(ds);
